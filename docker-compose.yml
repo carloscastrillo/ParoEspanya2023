@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  descarga:
+    build:
+      context: ./VM1_Download
+      dockerfile: Dockerfile_VM1
+    volumes:
+      - ./outputs:/app/outputs
+    container_name: vm1_descarga
+
+  procesamiento:
+    build:
+      context: ./VM2_Process
+      dockerfile: Dockerfile_VM2
+    volumes:
+      - ./outputs:/app/outputs
+    depends_on:
+      - descarga
+    container_name: vm2_procesamiento
+
+  visualizacion:
+    build:
+      context: ./VM3_Visual
+      dockerfile: Dockerfile_VM3
+    volumes:
+      - ./outputs:/app/outputs
+    depends_on:
+      - procesamiento
+    container_name: vm3_visualizacion
