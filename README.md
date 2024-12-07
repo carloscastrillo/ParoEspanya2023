@@ -13,7 +13,7 @@ Además, se utiliza un directorio `outputs` para almacenar todos los archivos ge
 
 ## Requisitos
 - **Docker** y **Docker Compose** instalados.
-- Python 3.9 con las siguientes librerías (si deseas ejecutar fuera de Docker):
+- Python 3.9 con las siguientes librerías:
   - `pandas`
   - `geopandas`
   - `matplotlib`
